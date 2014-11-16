@@ -149,8 +149,6 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.1)
       loofah (~> 2.0)
-    rails_apps_pages (0.5.15)
-    rails_apps_testing (0.3.12)
     rails_layout (1.0.24)
     railties (4.2.0.beta4)
       actionpack (= 4.2.0.beta4)
@@ -256,8 +254,6 @@ DEPENDENCIES
   launchy
   quiet_assets
   rails (= 4.2.0.beta4)
-  rails_apps_pages
-  rails_apps_testing
   rails_layout
   rspec-rails
   sass-rails (~> 5.0.0.beta1)
