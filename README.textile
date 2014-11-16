@@ -1,0 +1,9 @@
+h1. !http://railsapps.github.io/images/rails-36x36.jpg(Rails Stripe Checkout)! Rails Stripe Checkout
+
+Rails 4.2 example application demonstrates how to sell a product using Stripe Checkout.
+
+h2. WORK IN PROGRESS
+
+"MIT License":http://www.opensource.org/licenses/mit-license
+
+Copyright ©2014 Daniel Kehoe
