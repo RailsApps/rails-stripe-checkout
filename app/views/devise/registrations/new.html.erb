@@ -1,0 +1,53 @@
+<% if @user.email.blank? || !resource.errors.empty? %>
+  <% flash.now[:alert] = 'Your card was NOT charged.' if !resource.errors.empty? %>
+  <div class="authform">
+    <%= form_for(@user, :url => {:controller=>'registrations', :action => 'pay'}, :html => { :role => 'form'}) do |f| %>
+      <h3>Sign Up &amp; Purchase</h3>
+      <%= devise_error_messages! %>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+      </div>
+      <%= f.submit '1. Sign up', :class => 'button left' %>
+      <%= f.submit '2. Pay with Card', :class => 'button' , :disabled => 'disabled' %>
+    <% end %>
+  </div>
+<% else %>
+  <div class="authform">
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f| %>
+      <h3>Pay with Card</h3>
+      <%= devise_error_messages! %>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control', disabled: 'true' %>
+      </div>
+      <%= f.hidden_field :password %>
+      <%= f.hidden_field :password_confirmation %>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input class="form-control" disabled="disabled" placeholder="hidden" type="text" id="password" />
+      </div>
+      <div class="form-group">
+        <label for="password_confirmation">Password confirmation</label>
+        <input class="form-control" disabled="disabled" placeholder="hidden" type="text" id="password_confirmation" />
+      </div>
+      <%= f.submit '1. Sign up', :class => 'button left', :disabled => 'disabled' %>
+       <script src="https://checkout.stripe.com/v2/checkout.js"
+        class="stripe-button"
+        data-label="2. Pay with Card"
+        data-email="<%= @user.email %>"
+        data-key="<%= Rails.application.secrets.stripe_publishable_key %>"
+        data-description="'What is Ruby on Rails'"
+        data-amount="995">
+       </script>
+    <% end %>
+  </div>
+<% end %>

@@ -1,2 +1,20 @@
 <h3>Welcome</h3>
-<p><%= link_to 'Users:', users_path %> <%= User.count %> registered</p>
+<% if user_signed_in? %>
+  <% if current_user.admin? %>
+    <h3>Admin</h3>
+    <p><%= link_to 'User count:', users_path %> <%= User.count %></p>
+  <% else %>
+    <h3>Download the book.</h3>
+    <%= link_to 'Download PDF', products_path('product.pdf'), :class => 'btn btn-success btn-large' %>
+  <% end %>
+<% else %>
+  <h3>Purchase the book.</h3>
+  <article>
+    <label class="amount">
+      <%= image_tag 'rubyonrails.png', size: '60x60' %>
+      <div>What is Ruby on Rails</div>
+      <span>Price: $9.95</span>
+    </label>
+    <%= render :partial => 'purchase' %>
+  </article>
+<% end %>

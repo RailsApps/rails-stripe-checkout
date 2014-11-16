@@ -1,0 +1,27 @@
+<br />
+<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#purchaseModal">Purchase</a>
+<div class="modal fade" id="purchaseModal" tabindex="-1" role="dialog" aria-labelledby="purchaseModal" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="authform">
+        <%= form_for(User.new, :url => {:controller=>'registrations', :action => 'pay'}, :html => { :role => 'form'}) do |f| %>
+          <h3>Sign Up &amp; Purchase</h3>
+          <div class="form-group">
+            <%= f.label :email %>
+            <%= f.email_field :email, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :password %>
+            <%= f.password_field :password, class: 'form-control' %>
+          </div>
+            <div class="form-group">
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation, class: 'form-control' %>
+          </div>
+          <%= f.submit '1. Sign up', :class => 'button left' %>
+          <%= f.submit '2. Pay with Card', :class => 'button' , :disabled => 'disabled' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
