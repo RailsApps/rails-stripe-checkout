@@ -24,10 +24,12 @@ class User < ActiveRecord::Base
       :email => self.email,
       :card  => self.stripeToken
     )
+    price = Rails.application.secrets.product_price
+    title = Rails.application.secrets.product_title
     charge = Stripe::Charge.create(
       :customer    => customer.id,
-      :amount      => '995', # product price in cents
-      :description => 'purchased book',
+      :amount      => "#{price}",
+      :description => "#{title}",
       :currency    => 'usd'
     )
     Rails.logger.info("Stripe transaction for #{self.email}") if charge[:paid] == true

@@ -6,7 +6,7 @@
       <%= devise_error_messages! %>
       <div class="form-group">
         <%= f.label :email %>
-        <%= f.email_field :email, class: 'form-control' %>
+        <%= f.email_field :email, :autofocus => true, class: 'form-control' %>
       </div>
       <div class="form-group">
         <%= f.label :password %>
@@ -22,12 +22,12 @@
   </div>
 <% else %>
   <div class="authform">
-    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f| %>
+    <%= form_for(@user, :url => registration_path(@user), :html => { :role => 'form'}) do |f| %>
       <h3>Pay with Card</h3>
       <%= devise_error_messages! %>
       <div class="form-group">
         <%= f.label :email %>
-        <%= f.email_field :email, class: 'form-control', disabled: 'true' %>
+        <%= f.email_field :email, :autofocus => true, class: 'form-control', disabled: 'true' %>
       </div>
       <%= f.hidden_field :password %>
       <%= f.hidden_field :password_confirmation %>
@@ -45,8 +45,8 @@
         data-label="2. Pay with Card"
         data-email="<%= @user.email %>"
         data-key="<%= Rails.application.secrets.stripe_publishable_key %>"
-        data-description="'What is Ruby on Rails'"
-        data-amount="995">
+        data-description="<%= Rails.application.secrets.product_title %>"
+        data-amount="<%= Rails.application.secrets.product_price %>">
        </script>
     <% end %>
   </div>
