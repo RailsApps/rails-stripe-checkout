@@ -1,9 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
 
-  def new
-    @user = User.new
-  end
-
   def pay
     @user = User.new
     @user.email = params[:user][:email]
