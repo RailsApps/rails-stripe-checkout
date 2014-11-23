@@ -8,7 +8,7 @@
           <h3>Sign Up &amp; Purchase</h3>
           <div class="form-group">
             <%= f.label :email %>
-            <%= f.email_field :email, class: 'form-control' %>
+            <%= f.email_field :email, :autofocus => true, class: 'form-control' %>
           </div>
           <div class="form-group">
             <%= f.label :password %>
@@ -19,8 +19,9 @@
             <%= f.password_field :password_confirmation, class: 'form-control' %>
           </div>
           <%= f.submit '1. Sign up', :class => 'button left' %>
-          <%= f.submit '2. Pay with Card', :class => 'button' , :disabled => 'disabled' %>
-        <% end %>
+          <%= f.submit '2. Pay with Card', :class => 'button', :disabled => 'disabled' %>
+        <% end %>>
+        </div>
       </div>
     </div>
   </div>
