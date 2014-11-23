@@ -12,8 +12,8 @@
   <article>
     <label class="amount">
       <%= image_tag 'rubyonrails.png', size: '60x60' %>
-      <div>What is Ruby on Rails</div>
-      <span>Price: $9.95</span>
+      <div><%= Rails.application.secrets.product_title %></div>
+      <span><%= Rails.application.secrets.product_price %></span>
     </label>
     <%= render :partial => 'purchase' %>
   </article>
