@@ -1,25 +1,23 @@
 h1. !http://railsapps.github.io/images/rails-36x36.jpg(Rails Stripe Checkout)! Rails Stripe Checkout
 
-Rails 4.2 example application demonstrates how to sell a product using "Stripe Checkout":https://stripe.com/checkout. The application uses:
+Rails 4.2 example application demonstrates how to sell a product using "Stripe Checkout":https://stripe.com/checkout. Use this example application as a starter app for your own web applications.
+
+See the tutorial For a complete explanation of the code:
+
+* "*Stripe Checkout Tutorial*":https://tutorials.railsapps.org/rails-stripe-checkout
+
+The application uses:
 
 * "Stripe":https://stripe.com/ for credit card payment processing
 * "Devise":https://github.com/plataformatec/devise for user management and authentication
 * "Role-Based Authorization":http://railsapps.github.io/rails-devise-roles for administrator access
 * "Bootstrap":http://getbootstrap.com/ front-end framework
 
-Use this example application as a starter app for your own web applications. The application is based on a simpler example application:
-
-* "rails-signup-download":https://github.com/RailsApps/rails-signup-download
-
-For a complete explanation of the code, see the tutorial:
-
-* "Stripe Checkout":https://tutorials.railsapps.org/rails-stripe-checkout
-
 Other tutorials may be helpful:
 
-* "Signup and Download Tutorial":https://tutorials.railsapps.org/rails-signup-download
+* "Signup and Download":https://tutorials.railsapps.org/rails-signup-download
 * "Role-Based Authorization":http://railsapps.github.io/rails-devise-roles
-* "Rails and Devise":http://railsapps.github.io/rails-devise/
+* "Devise Tutorial":http://railsapps.github.io/rails-devise/
 * "RSpec Tutorial":http://railsapps.github.io/rspec.html
 
 You can build this application in only a few minutes using the "Rails Composer":http://railsapps.github.io/rails-composer/ tool.
@@ -38,7 +36,7 @@ h2. What Is Implemented -- and What Is Not
 
 This application is based on the "rails-devise-roles":https://github.com/RailsApps/rails-devise-roles and "rails-signup-download":https://github.com/RailsApps/rails-signup-download example applications. The rails-devise-roles application shows how to implement "sign up" and "sign in" features (authentication) combined with authorization for roles such as an administrator. The rails-signup-download example application shows how a visitor can download a PDF file after registering for an account.
 
-The rails-stripe-checkout application implements a payment feature using Stripe Checkout so a visitor makes a payment to obtain an example PDF file. Devise provides account registration, so that a visitor creates an account when he or she makes a purchase. This means the visitor can return to the site, and after signing in with an email address and password, can download the PDF file again to get an update or replace a deleted file. This functionality is similar to sites such as "Gumroad":https://gumroad.com/ or "Leanpub":https://leanpub.com/ where authors sell digital books. Unlike Gumroad or Leanpub, there is no commission and you receive the entire payment (less the Stripe processing fees).
+The rails-stripe-checkout application implements a payment feature using Stripe Checkout so a visitor makes a payment to obtain an example PDF file. Devise provides account registration, so that a visitor creates an account when he or she makes a purchase. This means the visitor can return to the site, and after signing in with an email address and password, can download the PDF file again to get an update or replace a deleted file. This functionality is similar to sites such as "Gumroad":https://gumroad.com/ or "Leanpub":https://leanpub.com/ where authors sell digital books.
 
 "Stripe Checkout":https://stripe.com/checkout provides compliance with "Payment Card Industry Data Security Standards":https://www.pcisecuritystandards.org/ (PCI-DSS). Stripe Checkout is a JavaScript script that generates a "Pay with Card" button and form. The script submits the visitor's credit card data to Stripe and obtains an authorization token. Your application uses the authorization token to initiate a payment so the visitor's credit card data is never stored or exposed by your application.
 
