@@ -2,7 +2,7 @@ h1. !http://railsapps.github.io/images/rails-36x36.jpg(Rails Stripe Checkout)! R
 
 Rails 4.2 example application demonstrates how to sell a product using "Stripe Checkout":https://stripe.com/checkout. Use this example application as a starter app for your own web applications.
 
-See the tutorial For a complete explanation of the code:
+See the tutorial for a complete explanation of the code:
 
 * "*Stripe Checkout Tutorial*":https://tutorials.railsapps.org/rails-stripe-checkout
 
