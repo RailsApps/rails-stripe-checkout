@@ -13,7 +13,7 @@ Use this example application as a starter app for your own web applications. The
 
 For a complete explanation of the code, see the tutorial:
 
-* (unreleased)
+* "Stripe Checkout":https://tutorials.railsapps.org/rails-stripe-checkout
 
 Other tutorials may be helpful:
 
