@@ -13,7 +13,7 @@
     <label class="amount">
       <%= image_tag 'rubyonrails.png', size: '60x60' %>
       <div><%= Rails.application.secrets.product_title %></div>
-      <span><%= Rails.application.secrets.product_price %></span>
+      <span><%= number_to_currency(Rails.application.secrets.product_price.to_f/100) %></span>
     </label>
     <%= render :partial => 'purchase' %>
   </article>
