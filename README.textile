@@ -110,7 +110,7 @@ h2. Dependencies
 
 Before generating your application, you will need:
 
-* The Ruby language - version 2.1
+* The Ruby language - version 2.2
 * The Rails gem - version 4.2
 
 See the article "Installing Rails":http://railsapps.github.io/installing-rails.html for instructions about setting up Rails and your development environment. See the article "Updating to Rails 4.2":http://railsapps.github.io/updating-rails.html if you are using Rails 4.1. You must install Rails 4.2 to use this application because Active Job is not available in earlier versions of Rails.
@@ -139,7 +139,7 @@ h4. Generate
 
 If you want to use the project as a starter application, use the "Rails Composer":http://railsapps.github.io/rails-composer/ tool to generate a new version of the example app. You'll be able to give it your own project name when you generate the app. Generating the application gives you additional options.
 
-To build the example application, Rails 4.1 must be installed in your development environment. Run the command:
+To build the example application, Rails 4.2 must be installed in your development environment. Run the command:
 
 <pre>
 $ rails new rails-stripe-checkout -m https://raw.github.com/RailsApps/rails-composer/master/composer.rb
@@ -152,26 +152,26 @@ This creates a new Rails app named @rails-stripe-checkout@ on your computer. You
 You'll see a prompt:
 
 <pre>
-question  Build a starter application?
-      1)  Build a RailsApps example application
-      2)  Contributed applications
-      3)  Custom application
+option  Build a starter application?
+    1)  Build a RailsApps example application
+    2)  Contributed applications
+    3)  Custom application
 </pre>
 
 Enter "1" to select *Build a RailsApps example application*. You'll see a prompt:
 
 <pre>
-question  Choose a starter application.
-      1)  learn-rails
-      2)  rails-bootstrap
-      3)  rails-foundation
-      4)  rails-mailinglist-activejob
-      5)  rails-omniauth
-      6)  rails-devise
-      7)  rails-devise-roles
-      8)  rails-devise-pundit
-      9)  rails-signup-download
-     10)  rails-stripe-checkout
+option  Choose a starter application.
+    1)  learn-rails
+    2)  rails-bootstrap
+    3)  rails-foundation
+    4)  rails-mailinglist-activejob
+    5)  rails-omniauth
+    6)  rails-devise
+    7)  rails-devise-roles
+    8)  rails-devise-pundit
+    9)  rails-signup-download
+   10)  rails-stripe-checkout
 </pre>
 
 Choose *rails-stripe-checkout*. The Rails Composer tool may give you other options (other applications may have been added since these notes were written).
@@ -533,7 +533,7 @@ h2. MIT License
 
 "MIT License":http://www.opensource.org/licenses/mit-license
 
-Copyright ©2014 Daniel Kehoe
+Copyright ©2014-15 Daniel Kehoe
 
 h2. Useful Links
 
