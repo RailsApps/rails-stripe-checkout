@@ -1,0 +1,43 @@
+## Rename this file to local_env.yml
+## Add account settings and API keys here.
+## The local_env.yml file should be listed in .gitignore to keep your settings secret!
+## Each entry gets set as a local environment variable.
+## This file overrides ENV variables in the Unix shell.
+## For example, setting:
+## GMAIL_USERNAME: 'Your_Gmail_Username'
+## makes 'Your_Gmail_Username' available as ENV["GMAIL_USERNAME"]
+
+## Make sure the secrets in this file are kept private if you are sharing
+## your code publicly by adding /config/local_env.yml to the ./.gitignore file
+## --- Remove the above after copying this file as local_env.yml
+
+# Be sure to restart your server when you modify this file.
+
+# Add account settings and API keys here.
+# This file must be listed in .gitignore to keep your settings secret!
+# Each entry gets set as a local environment variable.
+# This file overrides ENV variables in the Unix shell.
+# For example, setting:
+# GMAIL_USERNAME: 'Your_Gmail_Username'
+# makes 'Your_Gmail_Username' available as ENV["GMAIL_USERNAME"]
+# Note : MANDRILL_API_KEY: "SET your API TEST key here"
+## ^ this is our Mandrill test key ^^ at https://mandrillapp.com/settings/
+## in production, this would be changed to your API PRODUCTION key be;pw
+# Note : MANDRILL_API_KEY: 'SET your API PRODUCTION key here'
+## ^ this is our Mandrill test key ^^ at https://mandrillapp.com/settings/
+## in production, this would be changed.
+
+#ADMIN_NAME: 'Test User'  # Not in use in rails-stripe-checkout
+ADMIN_EMAIL: 'user@example.com'
+ADMIN_PASSWORD: 'please123'
+DOMAIN_NAME: 'example.com'
+GMAIL_USERNAME: 'you@gmail.com'
+GMAIL_PASSWORD: 'your gmail password'
+MAILCHIMP_API_KEY: 'your mail chimp api key'
+MAILCHIMP_LIST_ID: 'your list id'
+MANDRILL_API_KEY: 'your real api test key'   # change to api production key in production 
+MANDRILL_USERNAME: 'yours@yours.com'
+STRIPE_API_KEY: 'sk_test_your_test_key'
+STRIPE_PUBLISHABLE_KEY: 'pk_test_your_test_key'
+PRODUCT_TITLE: 'Practicing Rails'
+PRODUCT_PRICE: '995'

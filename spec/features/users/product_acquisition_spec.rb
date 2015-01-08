@@ -1,6 +1,3 @@
-require 'rails_helper'
-#require 'stripe_mock'
-
 include Warden::Test::Helpers
 Warden.test_mode!
 
@@ -14,18 +11,26 @@ feature 'Product acquisition' do
     Warden.test_reset!
   end
 
-  # Scenario: Admin User sees Registered User's Count after Sign In.
+  # Scenario: Admin User sees Welcome Admin after Sign In.
   #   Given I am an Admin user
   #   When I sign in
   #   Then I see the Welcome Admin greeting
-  #   And I can see how many users we have 
-  scenario 'Admin User sees number of users in database' do
-    user = FactoryGirl.build(:user, :admin)
+  scenario 'Expect Admin User to sign in and see Welcome Admin' do
+    user = FactoryGirl.create(:user, :admin)
     login_as(user, scope: :user)
     visit root_path
-    Rails.logger.info "User email is #{ENV['ADMIN_EMAIL']}"
     expect(page).to have_content 'Welcome Admin'
-    expect(page).to have_content 'Users'
+  end
+
+  # Scenario: Admin User sees Registered User's Count after Sign In.
+  #   Given I am an Admin user
+  #   When I sign in
+  #   And I can see how many users we have 
+  scenario 'Admin User sees number of users in database' do
+    user = FactoryGirl.create(:user, :admin)
+    login_as(user, scope: :user)
+    visit root_path
+    expect(page).to have_content 'User count:'
   end
 
  # Scenario: User cannot see Registered User's Count after Sign In.
@@ -34,12 +39,10 @@ feature 'Product acquisition' do
   #   Then I see the Welcome greeting
   #   But I cannot see how many users exist in the database 
   scenario 'User cannot see number of users in database' do
-    user = FactoryGirl.build(:user)
+    user = FactoryGirl.create(:user)
     login_as(user, scope: :user)
     visit root_path
-    #Rails.logger.info "User email is : #{user.email}"
-    expect(page).to have_content 'Welcome'
-   # expect(page).not_to have_content 'Users'
+    expect(page).not_to have_content 'User count:'
   end
 
   # Scenario: Download the product
@@ -47,7 +50,7 @@ feature 'Product acquisition' do
   #   When I click the 'Download' button
   #   Then I should receive a PDF file
   scenario 'Download the product' do
-    user = FactoryGirl.build(:user)
+    user = FactoryGirl.create(:user)
     login_as(user, scope: :user)
     visit root_path
     expect(page).to have_content 'Download a free book'

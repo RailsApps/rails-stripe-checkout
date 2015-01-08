@@ -47,7 +47,6 @@ feature 'Sign Up', :devise do
   scenario 'visitor can sign up with a long enough password' do  # 20150101 passing
     sign_up_with('test@example.com', 'please321', 'please321')
     if "please321".split(//).count >= 8
-      save_screenshot
       expect(page).to match(/A message with a confirmation link has been sent to your email address. Please follow the link to activate your account/)
     else
     end
