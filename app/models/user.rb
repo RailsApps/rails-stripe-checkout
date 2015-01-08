@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   after_create :sign_up_for_mailing_list
 
   attr_accessor :stripeToken
-
+  # see ^^^ http://railscasts.com/episodes/209-introducing-devise?view=asciicast
   def set_default_role
     self.role ||= :user
   end

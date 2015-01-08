@@ -1,3 +1,5 @@
+require 'rails_helper' # 20141220
+
 # Feature: Home page
 #   As a visitor
 #   I want to visit a home page
