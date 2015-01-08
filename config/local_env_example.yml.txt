@@ -1,18 +1,21 @@
 # Be sure to restart your server when you modify this file.
 
-# Your secret key is used for verifying the integrity of signed cookies.
-# If you change this key, all old signed cookies will become invalid!
-
-# Make sure the secret is at least 30 characters and all random,
-# no regular words or you'll be exposed to dictionary attacks.
-# You can use `rake secret` to generate a secure secret key.
+# Rename this file to local_env.yml
+# Add account settings and API keys here.
+# This file should be listed in .gitignore to keep your settings secret!
+# Each entry gets set as a local environment variable.
+# This file overrides ENV variables in the Unix shell.
+# For example, setting:
+# GMAIL_USERNAME: 'Your_Gmail_Username'
+# makes 'Your_Gmail_Username' available as ENV["GMAIL_USERNAME"]
 
 # Make sure the secrets in this file are kept private
 # if you're sharing your code publicly.
 
 development:
+#  admin_name: First User
   admin_email: user@example.com
-  admin_password: changemenow
+  admin_password: changeme
   email_provider_username: <%= ENV["GMAIL_USERNAME"] %>
   email_provider_password: <%= ENV["GMAIL_PASSWORD"] %>
   domain_name: example.com
@@ -22,11 +25,12 @@ development:
   stripe_publishable_key: <%= ENV["STRIPE_PUBLISHABLE_KEY"] %>
   product_title: <%= ENV["PRODUCT_TITLE"] %>
   product_price: <%= ENV["PRODUCT_PRICE"] %>
-  secret_key_base: 12fcdf2c970511f6afcc99c9aa125cb74957c7b5f8dbb2bd056546fbb8361a337d27d1e75ecc0abae5cb91988c8f9ffd56519cce970c68c4c26aacfdedbf18c4
+  secret_key_base: 5469f728e31f80e9f990fef4e61f57219319beb8eb02c953a8d75f10139e699254f69a98a53a758840d14cd936b6bec1176c8a26c6bed8ca67f58e9be4099569
 
 test:
+#  admin_name: First User
   admin_email: user@example.com
-  admin_password: changemenow
+  admin_password: changeme
   email_provider_username: <%= ENV["GMAIL_USERNAME"] %>
   email_provider_password: <%= ENV["GMAIL_PASSWORD"] %>
   domain_name: example.com
@@ -36,7 +40,7 @@ test:
   stripe_publishable_key: <%= ENV["STRIPE_PUBLISHABLE_KEY"] %>
   product_title: <%= ENV["PRODUCT_TITLE"] %>
   product_price: <%= ENV["PRODUCT_PRICE"] %>
-  secret_key_base: d67f9ec5fb20a86a60a7e22377b1fcbb90cdd8295704823b67f73711acb0a669c4cbf85d718e02e43b3c2c71c407d9c33565b986a80b6a891efc44fcc54cd05e
+  secret_key_base: 2019cf7b3c4c3c3d1741e48045f9de3192794b3d16302fe1221c57c970942abff9a1a8116113f070472997b084544ad91e8caa6a175407f8e7b897bda7c5d505
 
 # Do not keep production secrets in the repository,
 # instead read values from the environment.

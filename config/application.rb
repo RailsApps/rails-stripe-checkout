@@ -9,6 +9,22 @@ Bundler.require(*Rails.groups)
 module RailsStripeCheckout
   class Application < Rails::Application
 
+    # 20150106 ref next line
+    # http://railscasts.com/episodes/209-introducing-devise?view=asciicast
+    config.filter_parameters << :password
+      
+    # http://railsapps.github.io/rails-environment-variables.html  # 20150106
+    config.before_configuration do
+      env_file = File.join(Rails.root, 'config', 'local_env.yml')
+      YAML.load(File.open(env_file)).each do |key, value|
+        ENV[key.to_s] = value
+      end if File.exists?(env_file)
+    end
+
+    # ref : https://github.com/plataformatec/devise/issues/2065   # 20150106
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore
+
     config.generators do |g|
       g.test_framework :rspec,
         fixtures: true,
