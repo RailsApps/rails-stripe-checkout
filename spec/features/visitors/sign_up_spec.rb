@@ -36,7 +36,7 @@ feature 'Sign Up', :devise do
   #   Given I am not signed in
   #   When I sign up with a short password
   #   Then I see a 'too short password' message
-  scenario 'visitor cannot sign up with a short password' do  # 20150101 passing
+  scenario 'visitor cannot sign up with a short password' do
     sign_up_with('test@example.com', 'please', 'please')
     if "please".split(//).count < 8 
       expect(page).to have_content "Password is too short"
@@ -44,7 +44,7 @@ feature 'Sign Up', :devise do
     end
   end
 
-  scenario 'visitor can sign up with a long enough password' do  # 20150101 passing
+  scenario 'visitor can sign up with a long enough password' do
     sign_up_with('test@example.com', 'please321', 'please321')
     if "please321".split(//).count >= 8
       expect(page).to match(/A message with a confirmation link has been sent to your email address. Please follow the link to activate your account/)

@@ -23,18 +23,16 @@ describe 'Charge API' do
     StripeMock.stop_client(:clear_server_data => true)
   end
 
-  # passing
   it "requires a valid card token", :live => true do
-  expect {
-    charge = Stripe::Charge.create(
-    amount: 995,
-    currency: 'usd',
-    card: 'bogus_card_token'
-    )
-  }.to raise_error(Stripe::InvalidRequestError, /Invalid token id/)
+    expect {
+      charge = Stripe::Charge.create(
+      amount: 995,
+      currency: 'usd',
+      card: 'bogus_card_token'
+      )
+    }.to raise_error(Stripe::InvalidRequestError, /Invalid token id/)
   end
 
-  # passing
   it "creates a stripe charge item with a card token" do
     charge = Stripe::Charge.create(
       amount: 995,
@@ -48,32 +46,22 @@ describe 'Charge API' do
     expect(charge.captured).to eq(true)
   end
 
-  # failing
   it "creates a stripe charge item with a customer and card id" do
     begin
     # Use Stripe's bindings...
       customer = Stripe::Customer.create({
       email: 'user@example.com',
-     #card: card_token,
-     #card: stripe_helper.generate_card_token(last4: "4242", exp_month: 12, exp_year: 2018),
-     #card: stripe_helper.generate_card_token(number: '4242424242424242'),
-     #card: stripe_helper.generate_card_token,
       card: stripe_helper.generate_card_token(number: '4012888888881881'),
-     #card: stripe_helper.generate_card_token, # 20141210 (number: '4012888888881881'),
-     #card: customer.cards.data.first,
       description: "customer creation with card token"
     })
-   # card_token = customer.cards.data[0].id
     expect(customer.cards.data.length).to eq(1)
     expect(customer.cards.data[0].id).not_to be_nil
     expect(customer.cards.data[0].last4).to eq('1881')
-
     card = customer.cards.data[0]
     charge = Stripe::Charge.create({
       amount: 995,
       currency: 'USD',
       customer: customer.id,
-     # card: stripe_helper.generate_card_token,
       card: card.id,
       description: 'a charge with a specific card'
       })
@@ -106,7 +94,6 @@ describe 'Charge API' do
 end
   end
 
-  # passing
   it "retrieves a stripe charge" do
     original = Stripe::Charge.create({
       amount: 995,
@@ -118,7 +105,6 @@ end
     expect(charge.amount).to eq(original.amount)
   end
 
-  # passing
   it "cannot retrieve a charge that doesn't exist" do
     expect { Stripe::Charge.retrieve('nope') }.to raise_error {|e|
     expect(e).to be_a Stripe::InvalidRequestError
@@ -134,7 +120,6 @@ end
       @charge2 = Stripe::Charge.create
     end
 
-    # passing
     it "stores charges for a customer in memory" do
       expect(@customer.charges.map(&:id)).to eq([@charge.id])
     end
@@ -143,13 +128,11 @@ end
       expect(Stripe::Charge.all.map(&:id)).to eq([@charge.id, @charge2.id])
     end
 
-    # passing
     it "defaults count to 10 charges" do
       11.times { Stripe::Charge.create }
       expect(Stripe::Charge.all.count).to eq(10)
     end
 
-    # passing
     context "when passing count" do
       it "gets that many charges" do
         expect(Stripe::Charge.all(count: 1).count).to eq(1)
@@ -167,7 +150,6 @@ describe 'captured status value' do
     expect(charge.captured).to eq(true)
   end
 
-  # passing
   it "reports captured if capture requested" do
     charge = Stripe::Charge.create({
       amount: 995,
@@ -178,7 +160,6 @@ describe 'captured status value' do
     expect(charge.captured).to eq(true)
   end
  
-  # passing
   it "reports not captured if capture: false requested" do
     charge = Stripe::Charge.create({
       amount: 995,
@@ -191,7 +172,6 @@ describe 'captured status value' do
 end
 
 describe "two-step charge (auth, then capture)" do
-  # passing
   it "changes captured status upon #capture" do
     charge = Stripe::Charge.create({
        amount: 995,
@@ -205,7 +185,6 @@ describe "two-step charge (auth, then capture)" do
     expect(returned_charge.captured).to eq(true)
   end
 
-  # passing
   it "captures with specified amount" do
     charge = Stripe::Charge.create({
       amount: 777,
@@ -221,7 +200,6 @@ describe "two-step charge (auth, then capture)" do
   end
 end
 
-  # passing
   it "retrieves an empty list if there's no subscriptions" do
     Stripe::Customer.create(id: 'no_cards')
     customer = Stripe::Customer.retrieve('no_cards')

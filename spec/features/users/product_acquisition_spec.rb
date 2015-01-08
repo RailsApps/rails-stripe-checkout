@@ -42,7 +42,7 @@ feature 'Product acquisition' do
     user = FactoryGirl.create(:user)
     login_as(user, scope: :user)
     visit root_path
-    expect(page).not_to have_content 'User count:'
+    expect(page).to_not have_content 'User count:'
   end
 
   # Scenario: Download the product

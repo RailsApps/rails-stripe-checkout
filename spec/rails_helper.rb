@@ -13,7 +13,7 @@ require 'factory_girl_rails'
 #require 'pry' # not installed in Gemfile
 require 'stripe_mock'
 require 'stripe_mock/server'
-require 'sucker_punch/testing/inline'
+#require 'sucker_punch/testing/inline'
 require 'thin'
 StripeMock.spawn_server
 

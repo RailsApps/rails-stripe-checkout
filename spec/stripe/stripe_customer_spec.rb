@@ -55,18 +55,15 @@ describe 'Customer API' do
     customer = Stripe::Customer.create({
     email: 'johnny@example.com',
     card: stripe_helper.generate_card_token,
-#    card: gen_card_tk
     })
     customer2 = Stripe::Customer.create({
     email: 'bob@example.com',
     card: stripe_helper.generate_card_token,
-#   card: gen_card_tk
     })
     customers = Stripe::Customer.all
     array = customers.to_a
     data = array.pop
     expect(data.id).not_to be_nil
-    #expect(data[customer.id]).not_to be_nil
     expect(data.email).to eq('bob@example.com')
     data2 = array.pop
     expect(data2.id).not_to be_nil
@@ -77,7 +74,6 @@ describe 'Customer API' do
     original = Stripe::Customer.create({
     email: 'johnny@example.com',
     card: stripe_helper.generate_card_token,
-  #  card: gen_card_tk
     })
     customer = Stripe::Customer.retrieve(original.id)
     expect(customer.id).to eq(original.id)
@@ -122,7 +118,6 @@ describe 'Customer API' do
     expect(original.default_card).to eq(card.id)
     expect(original.cards.count).to eq(1)
     original.card = stripe_helper.generate_card_token
-   #original.card = gen_card_tk
     original.save
     new_card = original.cards.data.first
     expect(original.cards.count).to eq(1)

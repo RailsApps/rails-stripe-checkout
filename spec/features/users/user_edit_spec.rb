@@ -28,7 +28,7 @@ feature 'User edit', :devise do
 
   # Scenario: User cannot edit another user's profile
   #   Given I am signed in
-  #   When I try to edit another user's profil
+  #   When I try to edit another user's profile
   #   Then I see my own 'edit profile' page
   scenario "user cannot cannot edit another user's profile", :me do
     me = FactoryGirl.create(:user)
