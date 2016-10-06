@@ -5,8 +5,12 @@
       <h3>Sign Up &amp; Purchase</h3>
       <%= devise_error_messages! %>
       <div class="form-group">
-        <%= f.label :email %>
-        <%= f.email_field :email, :autofocus => true, class: 'form-control' %>
+        <%= f.label :name %>
+      <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control' %>
       </div>
       <div class="form-group">
         <%= f.label :password %>
@@ -26,8 +30,12 @@
       <h3>Pay with Card</h3>
       <%= devise_error_messages! %>
       <div class="form-group">
-        <%= f.label :email %>
-        <%= f.email_field :email, :autofocus => true, class: 'form-control', disabled: 'true' %>
+        <%= f.label :name %>
+      <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control', disabled: 'true' %>
       </div>
       <%= f.hidden_field :password %>
       <%= f.hidden_field :password_confirmation %>
